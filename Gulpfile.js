@@ -44,40 +44,20 @@ gulp.task('watch', function() {
     gulp.watch('./bower.json', ['wiredep']);
 
     gulp.watch(['./**/*.*']).on('change', browserSync.reload);
+    gulp.watch(['./']).on('change', browserSync.reload);
 
 
 });
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        notify:false,
-        proxy: "localhost:8080",
-        port:8081
-        // server: {
-        //     baseDir: "./"
-        // }
+        server: {
+            baseDir: "./"
+        }
     });
 });
 
 
-gulp.task('browser-sync-tablet', function() {
-    browserSync.init({
-        notify:false,
-        proxy: "localhost:8080",
-        port:8089
-        // server: {
-        //     baseDir: "tablet",
-        //     routes: {
-        //         "/bower_components": "bower_components",
-        //         "/css": "css",
-        //         "/img": "img",
-        //         "/js": "js",
-        //         "/views": "views",
-        //         "/data": "data"
-        //     }
-        // }
-    });
-});
 
 gulp.task('serve', function() {
 
@@ -93,4 +73,4 @@ gulp.task('serve', function() {
 });
 
 gulp.task('default', ['watch', 'sass', 'browser-sync']);
-gulp.task('tablet', ['watch', 'sass', 'browser-sync-tablet']);
+//ter

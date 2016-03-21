@@ -1,0 +1,261 @@
+<div id="content-wrapper" class="site-content-wrapper site-pages">
+    <div id="content" class="site-content layout-boxed">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 site-main-content">
+                    <main id="main" class="site-main">
+                        <div class="white-box submit-property-box">
+                            <form id="submit-property-form" class="submit-form" enctype="multipart/form-data" method="post" novalidate="novalidate">
+                                <!--<div class="row">-->
+                                    <!--<div class="col-md-6">-->
+                                        <!--<div class="form-option">-->
+                                            <!--<label for="title">Property Title</label>-->
+                                            <!--<input id="title" name="title" type="text" class="required" title="* Please provide property title!">-->
+                                        <!--</div>-->
+                                        <!--<div class="form-option">-->
+                                            <!--<label for="description">Property Description</label>-->
+                                            <!--<textarea name="description" id="description" cols="30" rows="5"></textarea>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-6">-->
+                                        <!--<div class="form-option">-->
+                                            <!--<label for="address">Address</label>-->
+                                            <!--<input type="text" class="required" name="address" id="address" value="15421 Southwest 39th Terrace, Miami, FL 33185, USA" title="* Please provide a property address!">-->
+                                            <!--<div class="map-wrapper">-->
+                                                <!--<button class="btn-default goto-address-button" type="button" value="address">Find Address</button>-->
+                                                <!--<div class="map-canvas"></div>-->
+                                                <!--<input type="hidden" name="location" class="map-coordinate" value="">-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!-- .row -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-option">
+                                            <label for="Package">Package</label>
+                                            <select name="Package" id="Package" class="search-select valid" aria-invalid="false">
+                                                <option ng-repeat="data in packagesData">{{data.name}} - {{data.description}}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-option">
+                                            <label for="deposit_amount">Deposit Amount</label>
+                                            <select name="deposit_amount" id="deposit_amount" class="search-select">
+                                                <option value="" ng-repeat="data in packagesData[0].deposit">{{data}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="user_first_name">First Name</label>
+                                            <input id="user_first_name" name="user_first_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="user_last_name">Last Name</label>
+                                            <input id="user_last_name" name="user_last_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="user_company_name">Company Name</label>
+                                            <input id="user_company_name" name="user_company_name" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="price">Sale OR Rent Price</label>
+                                            <input id="price" name="price" type="text" title="* Only numbers allowed!">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="price-postfix">Price Postfix Text</label>
+                                            <input id="price-postfix" name="price-postfix" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="size">Area</label>
+                                            <input id="size" name="size" type="text" title="* Only numbers allowed!">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="area-postfix">Area Postfix Text</label>
+                                            <input id="area-postfix" name="area-postfix" type="text" value="SqFt">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="property-id">Property ID</label>
+                                            <input id="property-id" name="property-id" type="text" title="Property ID">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-option">
+                                            <label for="video-url">Virtual Tour Video URL</label>
+                                            <input id="video-url" name="video-url" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                                <div class="row container-row">
+                                    <div class="col-lg-6">
+                                        <div class="form-option">
+                                            <div id="gallery-thumbs-container" class="clearfix ui-sortable"></div>
+                                            <div id="drag-and-drop">
+                                                <div class="drag-drop-msg text-center">
+                                                    <i class="fa fa-cloud-upload"></i>&nbsp;&nbsp;Drag and drop images here<br>
+                                                    <span class="drag-or">OR</span>
+                                                    <br>
+                                                    <a id="select-images" class="drag-btn btn-default btn-orange" href="javascript:;">Select Images</a>
+                                                </div>
+                                            </div>
+                                            <ul class="field-description list-unstyled">
+                                                <li><span>*</span>An image should have minimum width of 850px and minimum height of 600px.</li>
+                                                <li><span>*</span>You can mark an image as featured by clicking the star icon, Otherwise first image will be considered featured image.</li>
+                                            </ul>
+                                            <div id="plupload-container"></div>
+                                            <div id="errors-log"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-option">
+                                            <label class="fancy-title">What to display in agent information box ?</label>
+                                            <ul class="agent-options list-unstyled">
+                                                <li>
+                                             <span class="radio-field">
+                                             <input id="agent_option_none" type="radio" name="agent_display_option" value="none" checked="">
+                                             <label for="agent_option_none">None</label>
+                                             </span><small>( No information will be displayed )</small>
+                                                </li>
+                                                <li>
+                                             <span class="radio-field">
+                                             <input id="agent_option_profile" type="radio" name="agent_display_option" value="my_profile_info">
+                                             <label for="agent_option_profile">My Profile Information</label>
+                                             </span>
+                                                    <small>
+                                                        <a href="profile.html" target="_blank">( Edit Profile Information )</a>
+                                                    </small>
+                                                </li>
+                                                <li>
+                                             <span class="radio-field">
+                                             <input id="agent_option_agent" type="radio" name="agent_display_option" value="agent_info">
+                                             <label for="agent_option_agent">Display Agent Information</label>
+                                             </span>
+                                                    <select name="agent_id" id="agent-selectbox" tabindex="-1" class="select2-hidden-accessible"
+                                                            aria-hidden="true">
+                                                        <option value="57">Nathan James</option>
+                                                        <option value="54">Melissa William</option>
+                                                        <option value="51">Alice Brian</option>
+                                                        <option value="48">John David</option>
+                                                    </select>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-option checkbox-option clearfix">
+                                            <input id="featured" name="featured" type="checkbox">
+                                            <label for="featured">Mark this property as featured property</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                                <div class="row container-row">
+                                    <div class="col-lg-6">
+                                        <div class="form-option">
+                                            <label class="fancy-title">Features</label>
+                                            <ul class="features-checkboxes-wrapper list-unstyled clearfix">
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-16" value="16"><label for="feature-16">2 Stories</label></span> </li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-17" value="17"><label for="feature-17">26' Ceilings</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-19" value="19"><label for="feature-19">Bike Path</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-20" value="20"><label for="feature-20">Central Cooling</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-21" value="21"><label for="feature-21">Central Heating</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-24" value="24"><label for="feature-24">Dual Sinks</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-25" value="25"><label for="feature-25">Electric Range</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-26" value="26"><label for="feature-26">Emergency Exit</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-27" value="27"><label for="feature-27">Fire Alarm</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-28" value="28"><label for="feature-28">Fire Place</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-31" value="31"><label for="feature-31">Home Theater</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-32" value="32"><label for="feature-32">Hurricane Shutters</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-33" value="33"><label for="feature-33">Jog Path</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-34" value="34"><label for="feature-34">Laundry Room</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-35" value="35"><label for="feature-35">Lawn</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-36" value="36"><label for="feature-36">Marble Floors</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-38" value="38"><label for="feature-38">Next to busy way</label></span></li>
+                                                <li><span class="option-set"><input type="checkbox" name="features[]" id="feature-44" value="44"><label for="feature-44">Swimming Pool</label></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-option">
+                                            <div class="inspiry-details-wrapper">
+                                                <label class="fancy-title">Additional Details</label>
+                                                <div class="inspiry-detail labels clearfix">
+                                                    <div class="inspiry-detail-control">&nbsp;</div>
+                                                    <div class="inspiry-detail-title"><label>Title</label></div>
+                                                    <div class="inspiry-detail-value"><label>Value</label></div>
+                                                    <div class="inspiry-detail-control">&nbsp;</div>
+                                                </div>
+                                                <!-- additional details container -->
+                                                <div id="inspiry-additional-details-container">
+                                                    <div class="inspiry-detail inputs clearfix">
+                                                        <div class="inspiry-detail-control"><i class="sort-detail fa fa-bars"></i></div>
+                                                        <div class="inspiry-detail-title"><input type="text" name="detail-titles[]" value=""></div>
+                                                        <div class="inspiry-detail-value"><input type="text" name="detail-values[]" value=""></div>
+                                                        <div class="inspiry-detail-control"><a class="remove-detail" href="#"><i class="fa fa-times"></i></a></div>
+                                                    </div>
+                                                </div>
+                                                <!-- end of additional details container -->
+                                                <div class="inspiry-detail clearfix">
+                                                    <div class="inspiry-detail-control">&nbsp;</div>
+                                                    <div class="inspiry-detail-control">
+                                                        <a class="add-detail" href="#"><i class="fa fa-plus"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                                <div class="row container-row">
+                                    <div class="col-xs-12">
+                                        <div class="form-option">
+                                            <label for="message_to_reviewer">Message to the Reviewer</label>
+                                            <textarea name="message_to_reviewer" id="message_to_reviewer" cols="30" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-option">
+                                            <input type="hidden" name="action" value="add_property">
+                                            <input type="submit" value="Submit Property" class="btn-small btn-orange">
+                                        </div>
+                                        <div id="message-container">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <!-- .row -->
+                            </form>
+                        </div>
+                        <!-- .user-profile-wrapper -->
+                    </main>
+                    <!-- .site-main -->
+                </div>
+                <!-- .site-main-content -->
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+    </div>
+    <!-- .site-content -->
+</div>

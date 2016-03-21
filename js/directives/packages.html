@@ -13,7 +13,7 @@
                         <h3 class="entry-title"><a href="#" rel="bookmark">{{ packagesData[0].name}}</a></h3>
                         <p>{{packagesData[0].description}}</p>
                         <div class="price-and-status">
-                            <span class="price">${{packagesData[0].selectedDeposit}}</span><a href="#"><span class="property-status-tag">SELECT DEPOSIT</span></a>
+                            <span class="price">${{packagesData[0].selectedDeposit}}</span><a href="#"><span class="property-status-tag" ng-click="goToDepositPage(packagesData[0].name, packagesData[0].selectedDeposit)">MAKE DEPOSIT</span></a>
                         </div>
                     </header>
                     <div class="property-meta entry-meta clearfix">
@@ -51,7 +51,7 @@
                         <h3 class="entry-title"><a href="#" rel="bookmark">{{ packagesData[1].name}}</a></h3>
                         <p>{{packagesData[1].description}}</p>
                         <div class="price-and-status">
-                            <span class="price">${{packagesData[1].selectedDeposit}}</span><a href="#"><span class="property-status-tag">SELECT DEPOSIT</span></a>
+                            <span class="price">${{packagesData[1].selectedDeposit}}</span><a href="#"><span class="property-status-tag" ng-click="goToDepositPage(packagesData[1].name, packagesData[1].selectedDeposit)">MAKE DEPOSIT</span></a>
                         </div>
                     </header>
                     <div class="property-meta entry-meta clearfix">
@@ -88,10 +88,10 @@
                 </div>                <!-- .property-thumbnail -->
                 <div class="property-description clearfix col-lg-6">
                     <header class="entry-header">
-                        <h3 class="entry-title"><a href="#" rel="bookmark">{{ packagesData[1].name}}</a></h3>
+                        <h3 class="entry-title"><a href="#" rel="bookmark">{{ packagesData[2].name}}</a></h3>
                         <p>{{packagesData[2].description}}</p>
                         <div class="price-and-status">
-                            <span class="price">${{packagesData[2].selectedDeposit}}</span><a href="#"><span class="property-status-tag">SELECT DEPOSIT</span></a>
+                            <span class="price">${{packagesData[2].selectedDeposit}}</span><a href="#"><span class="property-status-tag" ng-click="goToDepositPage(packagesData[2].name, packagesData[2].selectedDeposit)">MAKE DEPOSIT</span></a>
                         </div>
                     </header>
                     <div class="property-meta entry-meta clearfix">
@@ -129,7 +129,7 @@
                         <h3 class="entry-title"><a href="#" rel="bookmark">{{ packagesData[3].name}}</a></h3>
                         <p>{{packagesData[3].description}}</p>
                         <div class="price-and-status" ng-show="packagesData[3].selectedDeposit">
-                            <span class="price">${{packagesData[3].selectedDeposit}}</span><a href="#"><span class="property-status-tag">SELECT DEPOSIT</span></a>
+                            <span class="price">${{packagesData[3].selectedDeposit}}</span><a href="#"><span class="property-status-tag" ng-click="goToDepositPage(packagesData[3].name, packagesData[3].selectedDeposit)">MAKE DEPOSIT</span></a>
                         </div>
                     </header>
                     <div class="property-meta entry-meta clearfix">

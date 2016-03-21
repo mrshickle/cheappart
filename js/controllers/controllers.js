@@ -1,4 +1,4 @@
-app.controller('mainController', ["$scope", function($scope) {
+app.controller('mainController', ["$scope", "$state", function($scope, $state) {
 
     $('select').select2();
 
@@ -55,4 +55,30 @@ app.controller('mainController', ["$scope", function($scope) {
             selectedDeposit: ''
         }
     ]
+
+    $scope.selected = {};
+    $scope.selected.package = "Small Package - Pallet";
+    $scope.selected.deposit = "$5000";
+    $scope.selected.changePackage = false;
+    $scope.selected.changeDeposit = false;
+
+
+    $scope.months = ['01 - January', '02 - February', '03 - March', '04 - April', '05 - May', '06 - June', '07 - July', '08 - August', '09 - September', '10 - October', '11 - November', '12 - December'];
+
+
+    $scope.years = ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027'];
+
+    $scope.goToDepositPage = function(package_name, summ) {
+        $state.go('deposit');
+        $scope.selected.package = package_name;
+        $scope.selected.deposit = summ;
+    }
+
+
+    $scope.changeDeposit = function() {
+        $scope.selected.changeDeposit = true;
+    }
+    $scope.changePackage = function() {
+        $scope.selected.changePackage = true;
+    }
 }])

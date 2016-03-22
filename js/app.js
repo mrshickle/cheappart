@@ -17,5 +17,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/deposit",
             templateUrl: "/views/deposit.html"
         })
+        .state('contact', {
+            url: "/contact",
+            templateUrl: "/views/contact.html"
+        })
+        .state('about', {
+            url: "/about",
+            templateUrl: "/views/about.html"
+        })
+        .state('parts', {
+            url: "/parts",
+            templateUrl: "/views/parts.html"
+        })
+
 
 })

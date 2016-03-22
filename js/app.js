@@ -29,6 +29,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/parts",
             templateUrl: "/views/parts.html"
         })
+        .state('coming-soon', {
+            url: "/coming-soon",
+            templateUrl: "/views/coming-soon.html"
+        })
 
 
 })

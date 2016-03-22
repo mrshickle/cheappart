@@ -99,3 +99,9 @@ app
             templateUrl: '/js/directives/details.html'
         }
     })
+    .directive('footerDirective', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/js/directives/footer.html'
+        }
+    })
